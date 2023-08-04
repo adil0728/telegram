@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.screens.single_chat.SingleChatFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/chat_swipe_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/chat_input_message"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/chat_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/blue" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+        <EditText
+            android:id="@+id/chat_input_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Сообщение"
+            android:padding="@dimen/appPadding"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/chat_btn_send_message"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/chat_btn_send_message"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:padding="@dimen/appPadding"
+            android:src="@drawable/ic_send"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/chat_input_message" />
+
+        <ImageView
+            android:id="@+id/chat_btn_send_attach"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:padding="@dimen/appPadding"
+            android:src="@drawable/ic_attach"
+            android:background="@color/accent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/chat_btn_voice"        app:layout_constraintTop_toTopOf="@+id/chat_input_message" />
+
+        <ImageView
+            android:id="@+id/chat_btn_voice"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:padding="@dimen/appPadding"
+            android:src="@drawable/ic_voice"
+            android:background="@color/accent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/chat_input_message" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_sheet_choice"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        app:behavior_hideable= "true"
+        app:behavior_peekHeight="0dp"
+        android:background="@color/accent"
+        android:layout_height="@dimen/bottom_sheet_height">
+
+        <ImageView
+            android:id="@+id/btn_attach_image"
+            android:layout_width="@dimen/btn_bottom_sheet_width"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_attach_image"
+            android:layout_margin="@dimen/app_margin"/>
+
+
+        <ImageView
+            android:id="@+id/btn_attach_file"
+            android:layout_width="@dimen/btn_bottom_sheet_width"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_attach_file"
+            android:layout_margin="@dimen/app_margin"/>
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
